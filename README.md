@@ -23,7 +23,7 @@ _Sinc_ is mostly written in `C++`.
 
 The requirements can be fetched by running:
 ```bash
-sudo pacman -S fmt spdlog libconfig cmake catch2
+sudo pacman -S fmt spdlog libconfig cmake catch2 asio
 ```
 
 ### Compilation

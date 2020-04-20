@@ -1,24 +1,25 @@
-#pragma once
+#ifndef CONFIGURATION_HPP__
+#define CONFIGURATION_HPP__
 
 #define SINC_CONFIG_ERROR_READING_ENTRY -2
 #define SINC_CONFIG_ERROR_READING_FILE -1
 #define SINC_CONFIG_ERROR_SUCCESS 0
+#define DEFAULT_CONFIG_PATH_SYSTEM "/etc/sinc.conf"
 
-namespace SincBinary
-{
-    namespace Config
-    {
-        const static char* DEFAULT_PATH_SYSTEM = "/etc/sinc.conf";
+namespace SincBinary {
 
+    class Config {
+
+    public:
         /**
          * Whether the output should be verbose
          */
-        static int verbose = 0;
+        int verbose = 0;
 
         /**
          * Whether the output should be colored
          */
-        static int coloredOutput = 0;
+        int coloredOutput = 0;
 
         /**
          * Initializes the configuration
@@ -31,11 +32,12 @@ namespace SincBinary
          * remain as default. The function attempts to write those default
          * values to DEFAULT_PATH_USER.
          *
-         * @param path 
+         * @param path The path to the configuration
          *
          */
-        void init(const char* path);
+        Config(const char* path);
 
+    private:
         /**
          * Reads the given configuration file and sets the variables
          * appropriately.
@@ -54,5 +56,7 @@ namespace SincBinary
          * @param userPath The string containing the path to the user folder
          */
         void getUserConfPath(char* userPath);
-    }
+    };
 }
+
+#endif
