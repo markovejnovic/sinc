@@ -17,7 +17,10 @@ add_definitions(-DSPDLOG_FMT_EXTERNAL)
 
 add_subdirectory(src)
 
-add_executable(runtest tests/main.cpp tests/ConfigurationTest.cpp src/Configuration.cpp)
+add_executable(runtest
+  tests/main.cpp
+  tests/ConfigurationTest.cpp src/Configuration.cpp
+  tests/PackageTypeAtomTest.cpp src/PackageTypeAtom.cpp)
 target_link_libraries(runtest Catch2::Catch2 fmt::fmt config spdlog::spdlog)
 
 #include(CTest)
